@@ -7,7 +7,7 @@ let
 
     vimrcConfig.packages.myVimPackage = with nixpkgs.vimPlugins; {
         start = [
-          vim-colorschemes 
+          vim-colorschemes
           rainbow_parentheses
           # syntastic
           vimproc
@@ -28,6 +28,7 @@ let
           vim-nix
           fugitive
           vim-airline
+          vim-airline-themes
           ale
       ];
 
@@ -41,7 +42,7 @@ let
   };
 in
 {
-  vim = myVim; 
+  vim = myVim;
   environment.systemPackages = [ myVim ];
   environment.shellAliases.vi = "vim";
   environment.variables.EDITOR = "vim";
