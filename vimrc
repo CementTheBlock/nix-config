@@ -4,7 +4,7 @@ syntax on
 
 runtime macros/matchit.vim
 runtime macros/netrw.vim
-  
+
 set hidden
 
 set wildmenu
@@ -118,3 +118,9 @@ vmap a- :Tabularize /-><CR>
 map <silent> <Leader>tp :CtrlP()<CR>
 noremap <leader>b<space> :CtrlPBuffer<cr>
 let g:ctrlp_custom_ignore = '\v[\/]dist$'
+
+let g:ale_linters = {
+        'haskell': ['ghc-mod', 'hlint', 'hdevtools']
+    }
+
+let g:airline#extensions#ale#enabled = 1

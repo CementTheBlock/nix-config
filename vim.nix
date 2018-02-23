@@ -1,15 +1,15 @@
-{config,pkgs,...}:
+{ nixpkgs ? import <nixpkgs> {} }:
 
 let
-  myVim = pkgs.vim_configurable.customize {
+  myVim = nixpkgs.vim_configurable.customize {
     name = "vim";
     vimrcConfig.customRC = builtins.readFile ./vimrc;
 
-    vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+    vimrcConfig.packages.myVimPackage = with nixpkgs.vimPlugins; {
         start = [
           vim-colorschemes 
           rainbow_parentheses
-          syntastic
+          # syntastic
           vimproc
           ctrlp
           neocomplete
@@ -27,6 +27,8 @@ let
           neco-ghc
           vim-nix
           fugitive
+          vim-airline
+          ale
       ];
 
       #opt = [
@@ -39,6 +41,7 @@ let
   };
 in
 {
+  vim = myVim; 
   environment.systemPackages = [ myVim ];
   environment.shellAliases.vi = "vim";
   environment.variables.EDITOR = "vim";
