@@ -65,13 +65,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-map <Leader>s :SyntasticToggleMode<CR>
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
 set autoread
 
 au FocusGained,BufEnter * :silent! !
@@ -82,12 +75,7 @@ map <silent> <leader>tq :GhcModType<CR>
 map <silent> <leader>te :GhcModTypeClear<CR>
 map <silent> <leader>tc :GhcModCheck<CR>
 
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-
-" autocmd FileType rust :packadd rust-vim
-" autocmd FileType haskell :packadd ghc-mod
-" autocmd FileType haskell :packadd neco-ghc
-" autocmd FileType nix :packadd vim-nix
+"autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -119,7 +107,7 @@ map <silent> <Leader>tp :CtrlP()<CR>
 noremap <leader>b<space> :CtrlPBuffer<cr>
 let g:ctrlp_custom_ignore = '\v[\/]dist$'
 
-let g:ale_linters = {'haskell': ['ghc-mod', 'hlint', 'hdevtools']}
+let g:ale_linters = {'haskell': ['brittany', 'ghc-mod', 'hlint', 'hdevtools']}
 
 let g:airline#extensions#ale#enabled = 1
 
