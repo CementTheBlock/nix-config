@@ -1,6 +1,9 @@
+# I'll annotate above each line that needs changing how to make this work in a configuration.nix for nixos
+# {config, pkgs, nixpkgs,...}:
 { nixpkgs ? import <nixpkgs> {} }:
 
 let
+  #myVim = pkgs.vim_configurable.customize {
   myVim = nixpkgs.vim_configurable.customize {
     name = "vim";
     vimrcConfig.customRC = builtins.readFile ./vimrc;
@@ -29,6 +32,7 @@ let
           fugitive
           vim-airline
           vim-airline-themes
+          #'worp/ale'
           ale
       ];
 
@@ -42,6 +46,7 @@ let
   };
 in
 {
+  #remove this line
   vim = myVim;
   environment.systemPackages = [ myVim ];
   environment.shellAliases.vi = "vim";

@@ -108,6 +108,14 @@ noremap <leader>b<space> :CtrlPBuffer<cr>
 let g:ctrlp_custom_ignore = '\v[\/]dist$'
 
 let g:ale_linters = {'haskell': ['brittany', 'ghc-mod', 'hlint', 'hdevtools']}
+let g:ale_lint_on_insert_leave = 1
+
+let g:ale_fixers = { 'all': [ 'trim_whitespace', 'remove_trailing_lines']}
+
+let g:ale_fix_on_save = 1
+let g:ale_open_list = 'on_save'
+let g:ale_set_quickfix = 1
+let g:ale_set_signs = 1
 
 let g:airline#extensions#ale#enabled = 1
 
